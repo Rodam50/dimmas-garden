@@ -1289,7 +1289,7 @@ function renderPlants(filtered) {
         </div>
         <div class="plant-card-footer">
           <span class="plant-price">${p.price}</span>
-          <a href="#order" class="plant-order-btn">Order →</a>
+          <a href="#order" class="plant-order-btn" onclick="orderPlant('${p.name}')" onclick="orderPlant('${p.name}')">Order →</a>
         </div>
       </div>`;
     grid.appendChild(card);
@@ -1310,7 +1310,12 @@ function filterPlants(filter, btn) {
 // Init
 renderPlants(plants);
 
-// ── ORDER FORM ──
+// ── AUTO FILL ORDER ──
+function orderPlant(name) {
+  document.getElementById('f-plant').value = name + ' x1';
+  document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => document.getElementById('f-name').focus(), 600);
+}// ── ORDER FORM ──
 function getFormData() {
   return {
     name: document.getElementById('f-name').value.trim(),
