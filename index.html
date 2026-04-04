@@ -1036,7 +1036,7 @@ footer nav a:hover { color: var(--leaf); }
 <script>
 // ── PLANT DATA ──
 const plants = [
-  { name:"Calathea Makoyana", common:"Peacock Plant", price:"UGX 55,000", care:"Moderate", light:"Low–Indirect", rare:false, succulent:false, desc:"Stunning peacock-feather patterned leaves in silver and deep green. Folds at night like a prayer.", tags:["moderate","calathea"] },
+  { img:"calathea.jpg",name:"Calathea Makoyana", common:"Peacock Plant", price:"UGX 55,000", care:"Moderate", light:"Low–Indirect", rare:false, succulent:false, desc:"Stunning peacock-feather patterned leaves in silver and deep green. Folds at night like a prayer.", tags:["moderate","calathea"] },
   { name:"Philodendron Pink Princess", common:"PPP", price:"UGX 180,000", care:"Moderate", light:"Bright Indirect", rare:true, succulent:false, desc:"Burgundy-black leaves dramatically splashed with vivid bubblegum pink variegation. The ultimate collector's plant.", tags:["rare","philodendron"] },
   { name:"Philodendron Billietae", common:"Billietae Philodendron", price:"UGX 95,000", care:"Moderate", light:"Bright Indirect", rare:true, succulent:false, desc:"Long strap-like leaves with striking orange petioles. A rare tropical climbing statement piece.", tags:["rare","philodendron"] },
   { name:"Monstera Thai Constellation", common:"Thai Constellation", price:"UGX 250,000", care:"Moderate", light:"Bright Indirect", rare:true, succulent:false, desc:"Creamy-white constellations of variegation on dramatic fenestrated leaves. The most iconic plant of the decade.", tags:["rare","monstera"] },
@@ -1081,7 +1081,7 @@ function renderPlants(filtered) {
       : (p.care === 'Very Easy' ? `<span class="plant-badge easy">Easy Care</span>` : '');
     card.innerHTML = `
       <div class="plant-card-img">
-        ${getLeafSVG()}
+        ${p.img ? `<img src="${p.img}" style="width:100%;height:100%;object-fit:cover;">` : getLeafSVG()}
         ${badgeHtml}
       </div>
       <div class="plant-card-body">
