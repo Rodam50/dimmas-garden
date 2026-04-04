@@ -1261,7 +1261,43 @@ function filterPlants(filter, btn) {
 // Init
 renderPlants(plants);
 
-// Nav scroll
+// ── ORDER FORM ──
+function getFormData() {
+  return {
+    name: document.getElementById('f-name').value.trim(),
+    phone: document.getElementById('f-phone').value.trim(),
+    email: document.getElementById('f-email').value.trim(),
+    plant: document.getElementById('f-plant').value.trim(),
+    address: document.getElementById('f-address').value.trim(),
+    notes: document.getElementById('f-notes').value.trim(),
+  };
+}
+
+function validateForm(d) {
+  if (!d.name || !d.phone || !d.plant || !d.address) {
+    alert('Please fill in your name, phone, plant(s) and delivery address.');
+    return false;
+  }
+  return true;
+}
+
+function sendWhatsApp() {
+  const d = getFormData();
+  if (!validateForm(d)) return;
+  const msg = `🌿 *New Order — Dimma's Garden*\n\n*Name:* ${d.name}\n*Phone:* ${d.phone}\n*Email:* ${d.email || 'Not provided'}\n*Plant(s):* ${d.plant}\n*Delivery Address:* ${d.address}\n*Notes:* ${d.notes || 'None'}`;
+  const url = `https://wa.me/256789593760?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+  document.getElementById('form-success').style.display = 'block';
+}
+
+function sendEmail() {
+  const d = getFormData();
+  if (!validateForm(d)) return;
+  const subject = `New Plant Order from ${d.name}`;
+  const body = `New Order — Dimma's Garden\n\nName: ${d.name}\nPhone: ${d.phone}\nEmail: ${d.email || 'Not provided'}\nPlant(s): ${d.plant}\nDelivery Address: ${d.address}\nNotes: ${d.notes || 'None'}`;
+  window.location.href = `mailto:akelloredima@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('form-success').style.display = 'block';
+}// Nav scroll
 window.addEventListener('scroll', () => {
   document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
 });
