@@ -708,7 +708,114 @@ section { padding: 90px 5vw; }
   line-height: 1.6;
 }
 
-/* ── FOOTER ── */
+/* ── ORDER FORM ── */
+.order-form-wrap {
+  background: var(--parchment);
+  border: 0.5px solid var(--champagne);
+  border-radius: 4px;
+  padding: 36px 32px;
+  margin-top: 48px;
+  text-align: left;
+}
+.order-form-wrap h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: var(--forest);
+  margin-bottom: 6px;
+}
+.order-form-wrap p.form-sub {
+  font-size: 13px;
+  color: var(--stone);
+  margin-bottom: 24px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+.form-group label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: var(--black);
+  background: var(--cream);
+  border: 0.5px solid var(--champagne);
+  border-radius: 2px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--sage); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.form-btn-wa {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form-btn-wa:hover { background: #1ebe5d; }
+.form-btn-email {
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  padding: 13px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form-btn-email:hover { background: var(--sage); }
+.form-success {
+  display: none;
+  background: var(--mist);
+  border: 0.5px solid var(--leaf);
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--forest);
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .order-form-wrap { padding: 24px 18px; }
+}/* ── FOOTER ── */
 footer {
   background: var(--black);
   color: var(--stone);
