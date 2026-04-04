@@ -484,7 +484,12 @@ section { padding: 90px 5vw; }
   padding: 4px 10px;
   border-radius: 2px;
 }
-.plant-badge.easy {
+.plant-badge.low-stock {
+  background: #c0392b;
+  position: absolute;
+  top: 40px;
+  right: 12px;
+}.plant-badge.easy {
   background: var(--sage);
 }
 
@@ -1272,7 +1277,7 @@ function renderPlants(filtered) {
     const card = document.createElement('div');
     card.className = 'plant-card fade-up visible';
     const badgeHtml = p.rare
-      ? `<span class="plant-badge">✦ Rare Find</span>`
+      ? `<span class="plant-badge">✦ Rare Find</span><span class="plant-badge low-stock">⚠ Low Stock</span>`
       : (p.care === 'Very Easy' ? `<span class="plant-badge easy">Easy Care</span>` : '');
     card.innerHTML = `
       <div class="plant-card-img">
