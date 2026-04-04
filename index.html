@@ -815,6 +815,49 @@ section { padding: 90px 5vw; }
 @media (max-width: 600px) {
   .form-row { grid-template-columns: 1fr; }
   .order-form-wrap { padding: 24px 18px; }
+}/* ── FLOATING WHATSAPP ── */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  z-index: 999;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+}
+.wa-float svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+.wa-float-tooltip {
+  position: fixed;
+  bottom: 36px;
+  right: 92px;
+  background: var(--black);
+  color: white;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  font-family: 'Jost', sans-serif;
+}
+.wa-float:hover + .wa-float-tooltip {
+  opacity: 1;
 }/* ── FOOTER ── */
 footer {
   background: var(--black);
